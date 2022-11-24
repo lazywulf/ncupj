@@ -45,11 +45,13 @@ public class LevelManager : MonoBehaviour {
 
     // Toggle pause
     public void PauseScreen() {
-        SceneManager.LoadSceneAsync("PauseScreen", LoadSceneMode.Additive);
+        // SceneManager.LoadSceneAsync("PauseScreen", LoadSceneMode.Additive);
+        SceneManager.LoadScene("PauseScreen", LoadSceneMode.Additive);
     }
 
     public void UnpauseScreen(){
-        SceneManager.UnloadSceneAsync("PauseScreen");
+        // SceneManager.UnloadSceneAsync("PauseScreen");
+        SceneManager.UnloadScene("PauseScreen");
     }
 }
 

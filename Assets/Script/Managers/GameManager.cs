@@ -50,8 +50,8 @@ public class GameManager : MonoBehaviour {
 
     private void TogglePause() {
         if (!isPaused) {
-            LevelManager.Instance.PauseScreen();
             InputManager.Instance.TogglePause();
+            LevelManager.Instance.PauseScreen();
             
             isPaused = true;
             originalTimeScale = Time.timeScale;
