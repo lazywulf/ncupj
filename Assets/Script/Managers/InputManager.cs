@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class InputManager : MonoBehaviour {
     /*
@@ -11,14 +10,6 @@ public class InputManager : MonoBehaviour {
     private static InputManager _instance;
 
     private bool inputLock = false;
-
-    private static bool upKeyHoldDown = false;
-    private static bool downKeyHoldDown = false;
-    private static bool leftKeyHoldDown = false;
-    private static bool rightKeyHoldDown = false;
-    private static bool fireKeyHoldDown = false;
-    private static bool slowKeyHoldDown = false;
-    private static bool bombKeyPressed = false;
 
     // singleton
     public static InputManager Instance {
@@ -33,7 +24,6 @@ public class InputManager : MonoBehaviour {
         }
     }
 
-
     // Overrided MonoBehaviour methods
     private void Awake() {
         if (_instance == null) {
@@ -42,78 +32,66 @@ public class InputManager : MonoBehaviour {
     }
 
 
-    private void Update() {
-        if (!inputLock) {
-            if (Input.GetKey(KeyCode.UpArrow)) upKeyHoldDown = true;
-            else upKeyHoldDown = false;
-            if (Input.GetKey(KeyCode.DownArrow)) downKeyHoldDown = true;
-            else downKeyHoldDown = false;
-            if (Input.GetKey(KeyCode.LeftArrow)) leftKeyHoldDown = true;
-            else leftKeyHoldDown = false;
-            if (Input.GetKey(KeyCode.RightArrow)) rightKeyHoldDown = true;
-            else rightKeyHoldDown = false;
-            if (Input.GetKey(KeyCode.Z)) fireKeyHoldDown = true;
-            else fireKeyHoldDown = false;
-            if (Input.GetKeyDown(KeyCode.X)) bombKeyPressed = true;
-            else bombKeyPressed = false;
-            if (Input.GetKey(KeyCode.LeftShift)) slowKeyHoldDown = true;
-            else slowKeyHoldDown = false;
-        }
-        else {
-            upKeyHoldDown = false;
-            downKeyHoldDown = false;
-            leftKeyHoldDown = false;
-            rightKeyHoldDown = false;
-            fireKeyHoldDown = false;
-            bombKeyPressed = false;
-            slowKeyHoldDown = false;
-        }
-    }
-
-
     // public methods
     public void TogglePause() {
-        /* 
-            Toggle pause.
-            When puased, user input will be locked.
-         */
         if (!inputLock) inputLock = true;
         else inputLock = false;
     }
 
 
     public bool Up(){
-        return upKeyHoldDown;
+        if (!inputLock && Input.GetKeyDown(KeyCode.UpArrow)) {
+            return true;
+        }
+        return false;
     }
 
     
     public bool Down(){
-        return downKeyHoldDown;
+        if (!inputLock && Input.GetKeyDown(KeyCode.DownArrow)) {
+            return true;
+        }
+        return false;
     }
 
 
     public bool Left(){
-        return leftKeyHoldDown;
+        if (!inputLock && Input.GetKeyDown(KeyCode.LeftArrow)) {
+            return true;
+        }
+        return false;
     }
 
 
     public bool Right(){
-        return rightKeyHoldDown;
+        if (!inputLock && Input.GetKeyDown(KeyCode.RightArrow)) {
+            return true;
+        }
+        return false;
     }
 
 
     public bool Fire(){
-        return fireKeyHoldDown;
-    }
-
-
-    public bool Slow(){
-        return slowKeyHoldDown;
+        if (!inputLock && Input.GetKeyDown(KeyCode.Z)) {
+            return true;
+        }
+        return false;
     }
 
 
     public bool Bomb(){
-        return bombKeyPressed;
+        if (!inputLock && Input.GetKeyDown(KeyCode.B)) {
+            return true;
+        }
+        return false;
+    }
+
+
+    public bool Slow(){
+        if (!inputLock && Input.GetKeyDown(KeyCode.LeftShift)) {
+            return true;
+        }
+        return false;
     }
 
 
@@ -123,4 +101,6 @@ public class InputManager : MonoBehaviour {
         }
         return false;
     }
+
 }
+
