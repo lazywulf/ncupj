@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
-    /*
-        Please do not access this class. This is only a class to make the hierarchy prettier.
-        Any modification of this class may crash the game.
-    */
+
+
+    /// <summary>
+    /// This is the GameManager class.
+    /// Do not access this class. This is only a class to make the hierarchy prettier.
+    /// Any modification of this class may lead to potential crash.
+    /// </summary>
     // var
     private static GameManager _instance;
     
