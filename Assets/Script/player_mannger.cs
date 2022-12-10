@@ -42,7 +42,7 @@ public class player_mannger : MonoBehaviour
     }
     void cacmove()
     {
-        /*
+        
         if (InputManager.Down()) isdown = true;
         else isdown = false;
         if (InputManager.Up()) isup = true;
@@ -53,7 +53,7 @@ public class player_mannger : MonoBehaviour
         else isright = false;
         if (InputManager.Slow()) isslow = true;
         else isslow = false;
-        */
+        
         if (isdown ^ isup && isright ^ isleft) abs_speed = low_speed;
         else abs_speed = high_speed;
         if (isleft) speed.x = -abs_speed * slow_mode_mut;
