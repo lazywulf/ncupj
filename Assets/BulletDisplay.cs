@@ -14,6 +14,7 @@ public class BulletDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.position = BulletInfo.nowposition();
+       // Debug.Log(BulletInfo.nowposition());
     }
 }
