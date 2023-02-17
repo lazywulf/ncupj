@@ -487,6 +487,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4faaee4e59de5ac48a5d8679e2156028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  listener:
+    event: {fileID: 11400000, guid: 63ec5cb6ecfe7844099c95cb76c43e06, type: 2}
+  event: {fileID: 11400000, guid: 63ec5cb6ecfe7844099c95cb76c43e06, type: 2}
 --- !u!1 &1750025695
 GameObject:
   m_ObjectHideFlags: 0
