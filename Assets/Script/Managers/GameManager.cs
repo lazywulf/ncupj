@@ -50,8 +50,11 @@ public class GameManager : MonoBehaviour {
         Transform child = transform.Find(childName);
     }
 
+	private void Exit()	{
+        Application.Quit();
+	}
 
-    private void TogglePause() {
+	private void TogglePause() {
         if (!isPaused) {
             InputManager.Instance.TogglePause();
             LevelManager.Instance.PauseScreen();
