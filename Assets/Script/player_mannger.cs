@@ -2,18 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class player_mannger : MonoBehaviour
+public class player : MonoBehaviour
 {
     public InputManager InputManager;
     public bool isdown, isup, isleft, isright, isslow;
-    private Rigidbody2D rb;
     public Vector2 speed;
     public GameObject bul;
     private float abs_speed,high_speed = 1,low_speed = 0.707f,slow_mode_mut;
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         isdown = false;
         isup = false;
         isleft = false;
@@ -54,7 +52,7 @@ public class player_mannger : MonoBehaviour
         if (InputManager.Slow()) isslow = true;
         else isslow = false;
         
-        if (isdown ^ isup && isright ^ isleft) abs_speed = low_speed;
+        if (isdown || isup && isright || isleft) abs_speed = low_speed;
         else abs_speed = high_speed;
         if (isleft) speed.x = -abs_speed * slow_mode_mut;
         else if (isright) speed.x = abs_speed * slow_mode_mut;
@@ -62,7 +60,7 @@ public class player_mannger : MonoBehaviour
         if (isup) speed.y = abs_speed * slow_mode_mut;
         else if (isdown) speed.y = -abs_speed * slow_mode_mut;
         else speed.y = 0;
-        rb.velocity=speed;
-        
+        gameObject.transform.Translate(speed * Time.deltaTime);
+
     }
 }
