@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class enemy : MonoBehaviour
 {
+    int hp;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +15,15 @@ public class enemy : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public int GetHp()
+    {
+        return hp;
+    }
+
+    public void Hit_enemy(int point)
+    {
+        hp -= point;
     }
 }

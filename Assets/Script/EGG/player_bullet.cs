@@ -15,7 +15,11 @@ public class player_bullet : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("enemy")) Debug.Log("hit");
+        if (collision.CompareTag("enemy"))
+        {
+            collision.gameObject.GetComponent<enemy>().Hit_enemy(1);
+            Debug.Log("hit");
+        }
     }
     // Update is called once per frame
     void Update()
