@@ -14,7 +14,8 @@ public class LevelManager : MonoBehaviour {
     private static LevelManager _instance;
     private static List<string> levels = new List<string>();
 
-    // singleton
+    private LevelManager() { }
+
     public static LevelManager Instance {
         get {
             if (_instance != null) {

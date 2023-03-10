@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CircleSprite : MonoBehaviour {
+    [SerializeField] private GameEvent @event;
     
     void Awake() {
     }
@@ -13,7 +14,6 @@ public class CircleSprite : MonoBehaviour {
 
 
     void Update() {
-
     }
 
     void OnMouseDown() {

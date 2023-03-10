@@ -1,29 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour {
-    // var
-    private static UIManager _instance;
+public class UIManager : MonoBehaviour
+{
+	private static UIManager _instance;
 
-    // singleton 
-    public static UIManager Instance {
-        get {
-            if (_instance != null) {
-                return _instance;
-            }
-            else {
-                Debug.LogError("Null UIManager.");
-                return null;
-            }
-        }
-    }
-    
-    // public method
 
-    // Overrided MonoBehaviour methods
-    void Awake() {
-        _instance = this;
-    }
+
+	private UIManager() { }
+
+	public static UIManager Instance
+	{
+		get
+		{
+			if (_instance != null)
+			{
+				return _instance;
+			}
+			else
+			{
+				Debug.Log("Null UIManager.");
+				return null;
+			}
+		}
+	}
+
+	public void ToggleScreen(AbstractMenu menu) {
+		if (menu != null) menu.SetActive(menu.isActiveAndEnabled);
+	}
+
+	private void OnEnable()
+	{
+		
+	}
+
+	private void OnDisable()
+	{
+
+	}
 }
