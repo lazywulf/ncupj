@@ -12,6 +12,8 @@ public class InputManager : MonoBehaviour {
     private static InputManager _instance;
     private bool inputLock = false;
 
+    private InputManager() { }
+
     public static InputManager Instance {
         get {
             if (_instance != null) {

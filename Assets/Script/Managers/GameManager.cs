@@ -16,7 +16,8 @@ public class GameManager : MonoBehaviour {
     private bool isPaused = false;
     private float originalTimeScale = 1;
 
-    // singleton
+    private GameManager() { }
+
     public static GameManager Instance {
         get {
             if (_instance != null) {

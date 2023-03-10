@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EventManager : MonoBehaviour, IEventListener
+public class UIManager : MonoBehaviour
 {
-	private static EventManager _instance;
+	private static UIManager _instance;
 
-	public static EventManager Instance
+
+
+	private UIManager() { }
+
+	public static UIManager Instance
 	{
 		get
 		{
@@ -16,10 +20,14 @@ public class EventManager : MonoBehaviour, IEventListener
 			}
 			else
 			{
-				Debug.Log("Null EventManager.");
+				Debug.Log("Null UIManager.");
 				return null;
 			}
 		}
+	}
+
+	public void ToggleScreen(AbstractMenu menu) {
+		if (menu != null) menu.SetActive(menu.isActiveAndEnabled);
 	}
 
 	private void OnEnable()
@@ -30,10 +38,5 @@ public class EventManager : MonoBehaviour, IEventListener
 	private void OnDisable()
 	{
 
-	}
-
-	public void OnEventTrigger()
-	{
-		throw new System.NotImplementedException();
 	}
 }
