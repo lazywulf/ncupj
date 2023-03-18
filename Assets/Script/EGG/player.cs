@@ -5,7 +5,7 @@ using UnityEngine;
 public class player : MonoBehaviour
 {
     public GameEvent gameover;
-    public InputManager InputManager;
+    InputManager Input;
     public bool isdown, isup, isleft, isright, isslow;
     public Vector2 speed;
     public GameObject bul;
@@ -21,6 +21,7 @@ public class player : MonoBehaviour
         isslow = false;
         speed = new Vector2(0, 0);
         slow_mode_mut = 1;
+        Input = InputManager.Instance;
     }
 
     private void FixedUpdate()
@@ -31,7 +32,7 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (InputManager.Fire())
+        if (Input.Fire())
         {
             Instantiate(bul, transform.position,new Quaternion(0,0,0,0));
         }
@@ -52,15 +53,15 @@ public class player : MonoBehaviour
     void cacmove()
     {
         
-        if (InputManager.Down()) isdown = true;
+        if (Input.Down()) isdown = true;
         else isdown = false;
-        if (InputManager.Up()) isup = true;
+        if (Input.Up()) isup = true;
         else isup = false;
-        if (InputManager.Left()) isleft = true;
+        if (Input.Left()) isleft = true;
         else isleft = false;
-        if (InputManager.Right()) isright = true;
+        if (Input.Right()) isright = true;
         else isright = false;
-        if (InputManager.Slow()) isslow = true;
+        if (Input.Slow()) isslow = true;
         else isslow = false;
         
         if (isdown || isup && isright || isleft) abs_speed = low_speed;

@@ -7,14 +7,14 @@ public abstract class SpellcardMannger : MonoBehaviour
     public GameObject boss;
     protected enemy boss_sc;
     protected int hp;
-    public float time;
+    public float SC_Time;
 
-    [SerializeField] private GameEvent @event;
+    private GameEvent @event;
     protected abstract void init();
     protected abstract void clear();
     protected abstract void act();
     public void InitSpellCard() {
-        //boss = GameObject.Find("boss");
+        boss = GameObject.Find("boss");//need to be delete on merge
         boss_sc = boss.GetComponent<enemy>();
         init();
     }
@@ -28,9 +28,9 @@ public abstract class SpellcardMannger : MonoBehaviour
     void Update()
     {
         act();
-        time -= Time.deltaTime;
+        SC_Time -= Time.deltaTime;
         hp = boss_sc.GetHp();
-        if (time < 0)
+        if (SC_Time < 0)
         {
             Debug.Log("over");
         }
@@ -40,7 +40,7 @@ public abstract class SpellcardMannger : MonoBehaviour
             //Destroy(boss);
         }
     }
-    public float GetTime() { return time; }
+    public float GetTime() { return SC_Time; }
     public int GetHp() { return hp; }
 
 
