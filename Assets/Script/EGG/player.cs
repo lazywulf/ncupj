@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class player : MonoBehaviour
 {
+    public GameEvent gameover;
     public InputManager InputManager;
     public bool isdown, isup, isleft, isright, isslow;
     public Vector2 speed;
     public GameObject bul;
+    int hp = 2;
     private float abs_speed,high_speed = 1,low_speed = 0.707f,slow_mode_mut;
     // Start is called before the first frame update
     void Start()
@@ -33,10 +35,19 @@ public class player : MonoBehaviour
         {
             Instantiate(bul, transform.position,new Quaternion(0,0,0,0));
         }
+        if (hp <= 0)
+        {
+            gameover.Raise();
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("enemy")) Debug.Log("col");
+        if (collision.gameObject.CompareTag("enemy"))
+        {
+            hp--;
+            Debug.Log("col");
+            Debug.Log(hp);
+        }
     }
     void cacmove()
     {
