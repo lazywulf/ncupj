@@ -14,12 +14,13 @@ public class SpellCard_EX : Spellcard
     private void Start()
     {
         InitSpellCard();
-        player = GameObject.Find("Player");
+       
         
     }
     //Start
     protected override void init()
     {
+        player = GameObject.Find("Player");
         time = 0;
         dir = new Vector2(0, 0);
         SC_Time = 40;
