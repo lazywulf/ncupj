@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class SpellcardMannger : MonoBehaviour
+public abstract class Spellcard : MonoBehaviour
 {
     public GameObject boss;
     protected enemy boss_sc;
@@ -10,6 +10,12 @@ public abstract class SpellcardMannger : MonoBehaviour
     public float SC_Time;
 
     private GameEvent @event;
+
+    protected Vector3 r_and_angle(float r, float angle, Vector3 pos){
+        float dx = (float)(r * Mathf.Cos(angle));
+        float dy = (float)(r * Mathf.Sin(angle));
+        return new Vector3(pos.x + dx, pos.y + dy);
+    }
     protected abstract void init();
     protected abstract void clear();
     protected abstract void act();

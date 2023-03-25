@@ -63,7 +63,9 @@ public class player : MonoBehaviour
         else isright = false;
         if (Input.Slow()) isslow = true;
         else isslow = false;
-        
+
+        if (isslow) slow_mode_mut = low_speed;
+        else slow_mode_mut = high_speed;
         if (isdown || isup && isright || isleft) abs_speed = low_speed;
         else abs_speed = high_speed;
         if (isleft) speed.x = -abs_speed * slow_mode_mut;

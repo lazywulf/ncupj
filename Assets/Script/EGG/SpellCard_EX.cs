@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpellCard_EX : SpellcardMannger
+public class SpellCard_EX : Spellcard
 {
     float time,shoot_time=1;
     public GameObject line_bul,player;
@@ -39,3 +39,4 @@ public class SpellCard_EX : SpellcardMannger
     }
     protected override void clear(){}
 }
+
