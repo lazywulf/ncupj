@@ -27,6 +27,9 @@ public class player : MonoBehaviour
     private void FixedUpdate()
     {
         cacmove();
+		//if (Input.Down()) {
+            //Debug.Log("h");
+		//}
 
     }
     // Update is called once per frame
@@ -46,23 +49,18 @@ public class player : MonoBehaviour
         if (collision.gameObject.CompareTag("enemy"))
         {
             hp--;
-            Debug.Log("col");
-            Debug.Log(hp);
-        }
+			//Debug.Log("col");
+			//Debug.Log(hp);
+		}
     }
     void cacmove()
     {
-        
-        if (Input.Down()) isdown = true;
-        else isdown = false;
-        if (Input.Up()) isup = true;
-        else isup = false;
-        if (Input.Left()) isleft = true;
-        else isleft = false;
-        if (Input.Right()) isright = true;
-        else isright = false;
-        if (Input.Slow()) isslow = true;
-        else isslow = false;
+
+        isdown = Input.Down();
+        isup = Input.Up();
+        isleft = Input.Left();
+        isright = Input.Right();
+        isslow = Input.Slow();
 
         if (isslow) slow_mode_mut = low_speed;
         else slow_mode_mut = high_speed;
@@ -75,6 +73,5 @@ public class player : MonoBehaviour
         else if (isdown) speed.y = -abs_speed * slow_mode_mut;
         else speed.y = 0;
         gameObject.transform.Translate(speed * Time.deltaTime);
-
     }
 }

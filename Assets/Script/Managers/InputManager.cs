@@ -41,79 +41,46 @@ public class InputManager : MonoBehaviour
 
     public void TogglePause()
     {
-        if (!inputLock) inputLock = true;
-        else inputLock = false;
+        inputLock = !inputLock;
     }
 
     public bool Up()
     {
-        if (!inputLock && Input.GetKey(KeyCode.UpArrow))
-        {
-            return true;
-        }
-        return false;
+        return !inputLock && Input.GetKey(KeyCode.UpArrow);
     }
 
     public bool Down()
     {
-        if (!inputLock && Input.GetKey(KeyCode.DownArrow))
-        {
-            return true;
-        }
-        return false;
+        return !inputLock && Input.GetKey(KeyCode.DownArrow);
     }
 
     public bool Left()
     {
-        if (!inputLock && Input.GetKey(KeyCode.LeftArrow))
-        {
-            return true;
-        }
-        return false;
+        return !inputLock && Input.GetKey(KeyCode.LeftArrow);
     }
 
     public bool Right()
     {
-        if (!inputLock && Input.GetKey(KeyCode.RightArrow))
-        {
-            return true;
-        }
-        return false;
+        return !inputLock && Input.GetKey(KeyCode.RightArrow);
     }
 
     public bool Fire()
     {
-        if (!inputLock && Input.GetKey(KeyCode.Z))
-        {
-            return true;
-        }
-        return false;
+        return !inputLock && Input.GetKey(KeyCode.Z);
     }
 
     public bool Bomb()
     {
-        if (!inputLock && Input.GetKeyDown(KeyCode.B))
-        {
-            return true;
-        }
-        return false;
+        return !inputLock && Input.GetKeyDown(KeyCode.B);
     }
 
     public bool Slow()
     {
-        if (!inputLock && Input.GetKey(KeyCode.LeftShift))
-        {
-            return true;
-        }
-        return false;
+        return !inputLock && Input.GetKey(KeyCode.LeftShift);
     }
 
     public bool Pause()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            return true;
-        }
-        return false;
+        return Input.GetKeyDown(KeyCode.Escape);
     }
 }
