@@ -47,15 +47,15 @@ public class GameManager : MonoBehaviour {
     }
 
     // methods
-    private void GetChildByName(string childName) {
+    public void GetChildByName(string childName) {
         Transform child = transform.Find(childName);
     }
 
-	private void Exit()	{
+	public void Exit()	{
         Application.Quit();
 	}
 
-	private void TogglePause() {
+	public void TogglePause() {
         if (!isPaused) {
             InputManager.Instance.TogglePause();
             LevelManager.Instance.PauseScreen();
@@ -72,5 +72,9 @@ public class GameManager : MonoBehaviour {
             InputManager.Instance.TogglePause();
         }
     }
+
+    public bool IsPaused() {
+        return isPaused;
+	}
 }
 

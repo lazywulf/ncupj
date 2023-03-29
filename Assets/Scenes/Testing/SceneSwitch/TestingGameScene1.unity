@@ -512,6 +512,7 @@ GameObject:
   - component: {fileID: 981536516}
   - component: {fileID: 981536515}
   - component: {fileID: 981536514}
+  - component: {fileID: 981536518}
   m_Layer: 5
   m_Name: PauseScreen
   m_TagString: Untagged
@@ -603,6 +604,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &981536518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981536513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78c6eafe3346b8d43acb6c5d90f5b409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1040912503
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,6 +628,7 @@ GameObject:
   - component: {fileID: 1040912507}
   - component: {fileID: 1040912506}
   - component: {fileID: 1040912505}
+  - component: {fileID: 1040912508}
   m_Layer: 5
   m_Name: ResumeButton
   m_TagString: Untagged
@@ -687,18 +701,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 47ebb5206d0fd584d89720f0c989ff94, type: 3}
-        m_TargetAssemblyTypeName: GameEvent, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 1040912508}
+        m_TargetAssemblyTypeName: ButtonOnClick, Assembly-CSharp
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1040912503}
+          m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &1040912506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -737,6 +751,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1040912503}
   m_CullTransparentMesh: 1
+--- !u!114 &1040912508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040912503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493fd542a0f6e4849aa455c7261d90ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  temp: 0
 --- !u!1 &1304742823
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,7 +859,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 0
+        m_CallState: 2
 --- !u!114 &1304742826
 MonoBehaviour:
   m_ObjectHideFlags: 0
