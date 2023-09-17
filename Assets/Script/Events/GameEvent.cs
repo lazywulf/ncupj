@@ -2,25 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "GameEvent")]
-public class GameEvent : ScriptableObject
-{
-    /// <summary>
-    /// GameEvent not finished.
-    /// </summary>
-    private List<EventListener> listeners = new List<EventListener>();
+[CreateAssetMenu(fileName = "GameEvent", menuName = "Events/Game Event")]
+public class GameEvent : ScriptableObject {
+    private readonly List<IEventListener> listeners = new();
     
-    public void TriggerEvent() {
+    /// <summary>
+    /// Raise this event and trigger all listeners.
+    /// </summary>
+    public void Raise() {
         foreach (var listener in listeners) {
             listener.OnEventTrigger();
 		}
 	}
 
-    public void AddListener(EventListener listener) {
-        listeners.Add(listener);
+    /// <summary>
+    /// Add a listener to the listener list.
+    /// </summary>
+    /// <param name="listener"></param>
+    public void AddListener(IEventListener listener) {
+        if (!listeners.Contains(listener)) listeners.Add(listener);
 	}
 
-    public void RemoveListenter(EventListener listener) {
-        listeners.Remove(listener);
+    /// <summary>
+    /// Remove a listener from the listener list.
+    /// </summary>
+    /// <param name="listener"></param>
+    public void RemoveListenter(IEventListener listener) {
+        if (!listeners.Contains(listener)) listeners.Remove(listener);
 	}
 }

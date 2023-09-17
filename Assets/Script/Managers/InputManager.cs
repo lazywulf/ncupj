@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputManager : MonoBehaviour {
+public class InputManager : MonoBehaviour
+{
     /// <summary>
     /// This class is to manage user inputs.
     /// InputManager is a Mono singleton, which means you only need to call "InputManager.Instance" for its instance.
@@ -12,83 +13,74 @@ public class InputManager : MonoBehaviour {
     private static InputManager _instance;
     private bool inputLock = false;
 
-    public static InputManager Instance {
-        get {
-            if (_instance != null) {
+    private InputManager() { }
+
+    public static InputManager Instance
+    {
+        get
+        {
+            if (_instance != null)
+            {
                 return _instance;
             }
-            else {
+            else
+            {
                 Debug.LogError("Null InputManager.");
                 return null;
             }
         }
     }
 
-    private void Awake() {
-        if (_instance == null) {
+    private void Awake()
+    {
+        if (_instance == null)
+        {
             _instance = this;
         }
     }
 
-    public void TogglePause() {
-        if (!inputLock) inputLock = true;
-        else inputLock = false;
+    public void TogglePause()
+    {
+        inputLock = !inputLock;
     }
 
-    public bool Up(){
-        if (!inputLock && Input.GetKeyDown(KeyCode.UpArrow)) {
-            return true;
-        }
-        return false;
-    }
-    
-    public bool Down(){
-        if (!inputLock && Input.GetKeyDown(KeyCode.DownArrow)) {
-            return true;
-        }
-        return false;
+    public bool Up()
+    {
+        return !inputLock && Input.GetKey(KeyCode.UpArrow);
     }
 
-    public bool Left(){
-        if (!inputLock && Input.GetKeyDown(KeyCode.LeftArrow)) {
-            return true;
-        }
-        return false;
+    public bool Down()
+    {
+        return !inputLock && Input.GetKey(KeyCode.DownArrow);
     }
 
-    public bool Right(){
-        if (!inputLock && Input.GetKeyDown(KeyCode.RightArrow)) {
-            return true;
-        }
-        return false;
+    public bool Left()
+    {
+        return !inputLock && Input.GetKey(KeyCode.LeftArrow);
     }
 
-    public bool Fire(){
-        if (!inputLock && Input.GetKeyDown(KeyCode.Z)) {
-            return true;
-        }
-        return false;
+    public bool Right()
+    {
+        return !inputLock && Input.GetKey(KeyCode.RightArrow);
     }
 
-    public bool Bomb(){
-        if (!inputLock && Input.GetKeyDown(KeyCode.B)) {
-            return true;
-        }
-        return false;
+    public bool Fire()
+    {
+        return !inputLock && Input.GetKey(KeyCode.Z);
     }
 
-    public bool Slow(){
-        if (!inputLock && Input.GetKeyDown(KeyCode.LeftShift)) {
-            return true;
-        }
-        return false;
+    public bool Bomb()
+    {
+        return !inputLock && Input.GetKeyDown(KeyCode.B);
     }
 
-    public bool Pause() {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            return true;
-        }
-        return false;
+    public bool Slow()
+    {
+        return !inputLock && Input.GetKey(KeyCode.LeftShift);
+    }
+
+    public bool Pause()
+    {
+        return Input.GetKeyDown(KeyCode.Escape);
     }
 }
-

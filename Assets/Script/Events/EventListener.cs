@@ -1,29 +1,34 @@
-﻿using System.Collections;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-
-public class EventListener : MonoBehaviour
+[Serializable]
+public class EventListener : IEventListener
 {
+    [SerializeField] private GameEvent @event;
+	private Action response;
+
 	/// <summary>
-	/// EventListener not Finished.
+	/// Subscribe to the event. Must be called when the monobehaviour obj. is enabled/
 	/// </summary>
-	public GameEvent gameEvent;
-	public UnityEvent onEventTriggered;
-
-	public EventListener(GameEvent eventName) {
-		gameEvent = eventName;
+	/// <param name="eventResponse"></param> The function that is to be triggered when the event is raised.
+	public void OnEnable(Action eventResponse) {
+		if (@event != null) @event.AddListener(this);
+		response = eventResponse;
 	}
 
-	private void OnEnable() {
-		gameEvent.AddListener(this);
+	/// <summary>
+	/// Unsubscribe to the event. Must be called when the monobehaviour obj. is disabled/
+	/// </summary>
+	public void OnDisable() {
+		if (@event != null) @event.RemoveListenter(this);
+		response = null;
 	}
 
-	private void OnDisable() {
-		gameEvent.RemoveListenter(this);
-	}
-
-	public void OnEventTrigger() {
-		onEventTriggered.Invoke();
+	public void OnEventTrigger()
+	{
+		response?.Invoke();
 	}
 }

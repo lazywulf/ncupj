@@ -16,7 +16,8 @@ public class GameManager : MonoBehaviour {
     private bool isPaused = false;
     private float originalTimeScale = 1;
 
-    // singleton
+    private GameManager() { }
+
     public static GameManager Instance {
         get {
             if (_instance != null) {
@@ -50,8 +51,11 @@ public class GameManager : MonoBehaviour {
         Transform child = transform.Find(childName);
     }
 
+	private void Exit()	{
+        Application.Quit();
+	}
 
-    private void TogglePause() {
+	private void TogglePause() {
         if (!isPaused) {
             InputManager.Instance.TogglePause();
             LevelManager.Instance.PauseScreen();

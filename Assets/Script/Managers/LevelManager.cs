@@ -14,7 +14,8 @@ public class LevelManager : MonoBehaviour {
     private static LevelManager _instance;
     private static List<string> levels = new List<string>();
 
-    // singleton
+    private LevelManager() { }
+
     public static LevelManager Instance {
         get {
             if (_instance != null) {
@@ -46,14 +47,12 @@ public class LevelManager : MonoBehaviour {
 
     // Toggle pause
     public void PauseScreen() {
-        // SceneManager.LoadSceneAsync("PauseScreen", LoadSceneMode.Additive);
-        SceneManager.LoadScene("PauseScreen", LoadSceneMode.Additive);
     }
 
     public void UnpauseScreen(){
-        // SceneManager.UnloadSceneAsync("PauseScreen");
-        SceneManager.UnloadScene("PauseScreen");
-    }
+         SceneManager.UnloadSceneAsync("PauseScreen");
+		//SceneManager.UnloadScene("PauseScreen");
+	}
 }
 
 
