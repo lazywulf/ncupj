@@ -31,8 +31,4 @@ public class SpellcardManager : MonoBehaviour
         }
     }
 
-	public void OnLevelWasLoaded()
-	{
-	
-	}
 }
