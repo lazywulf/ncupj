@@ -3,37 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelManager : MonoBehaviour {
+public class LevelManager : Singleton<LevelManager> {
     /// <summary>
-    /// This is the game manager, a manager class for scene control and game progress control.
-    /// This class is attach to an invisable game object, LevelManager.
-    /// `LevelManager.Instance` is used to access the public method of this class.
+
     /// </summary>
 
     // var
-    private static LevelManager _instance;
     private static List<string> levels = new List<string>();
-
-    private LevelManager() { }
-
-    public static LevelManager Instance {
-        get {
-            if (_instance != null) {
-                return _instance;
-            }
-            else {
-                Debug.LogError("Null LevelManager.");
-                return null;
-            }
-        }
-    }
-
-    // Overrided MonoBehaviour methods
-    private void Awake() {
-        if (_instance == null) {
-            _instance = this;
-        }
-    }
     
     // public methods
     /// Scene loading
