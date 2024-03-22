@@ -9,13 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 811777585029436912}
+  - component: {fileID: 613268114456743239}
   - component: {fileID: 811777585029436919}
   - component: {fileID: 811777585029436918}
-  - component: {fileID: 811777585029436917}
-  - component: {fileID: 811777585029436913}
-  m_Layer: 0
-  m_Name: playerbullet
-  m_TagString: Untagged
+  m_Layer: 9
+  m_Name: PlayerBullet
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,13 +27,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 811777585029436916}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.4287, y: -0.502, z: 0}
-  m_LocalScale: {x: 0.1907, y: 0.393, z: 1}
+  m_LocalPosition: {x: -5.4616, y: -0.8139, z: 0}
+  m_LocalScale: {x: 0.04948665, y: 0.08107591, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &613268114456743239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811777585029436916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf79c6e5f062964e9e7640139cfd6c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &811777585029436919
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -103,36 +114,3 @@ CircleCollider2D:
   m_Offset: {x: 0.0042939186, y: 0}
   serializedVersion: 2
   m_Radius: 0.49007463
---- !u!50 &811777585029436917
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 811777585029436916}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &811777585029436913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 811777585029436916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28487658348698e42ab4bf36be15e9e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

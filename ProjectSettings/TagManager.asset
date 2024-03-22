@@ -4,7 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - enemy
+  - Enemy
+  - Reward
   layers:
   - Default
   - TransparentFX
@@ -12,9 +13,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Player
+  - Enemy
+  - Reward
   - 
   - 
   - 
@@ -39,6 +40,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Menu
+    uniqueID: 351751869
+    locked: 0
+  - name: HUD
+    uniqueID: 3018728081
+    locked: 0
+  - name: Game Object
+    uniqueID: 1938182975
+    locked: 0
+  - name: Background
+    uniqueID: 2947041667
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

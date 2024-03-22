@@ -10,12 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 6792946942772027186}
   - component: {fileID: 6792946942772027187}
+  - component: {fileID: 3333587034104361626}
   - component: {fileID: 6792946942772027188}
   - component: {fileID: 6792946942772027189}
   - component: {fileID: 6792946942772027185}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,14 +28,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6792946942772027190}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.375, y: 0.032, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.70710677, w: 0.7071069}
+  m_LocalPosition: {x: -1.375, y: 0.032, z: 1.0344496e-15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &6792946942772027187
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -73,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1938182975
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -87,6 +88,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3333587034104361626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6792946942772027190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90d4bc023681eb245830c99c6d46b0df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bomb:
+    event: {fileID: 11400000, guid: cb00c5bc7d1b0b64b8746f54c59d15be, type: 2}
+  fire:
+    event: {fileID: 11400000, guid: 965961e6c05ea6240a592a036cf7a705, type: 2}
+  altFire:
+    event: {fileID: 11400000, guid: 6c62f0001f6ed9145bcd510930ac3dee, type: 2}
+  death: {fileID: 0}
+  <MaxHealth>k__BackingField: 0
+  <bulletPool>k__BackingField: {fileID: 0}
+  <FireRate>k__BackingField: 1
+  altFireRateModifier: 1
+  <BulletQuality>k__BackingField: 1
+  altBulletQualityModifier: 1
+  <FireArc>k__BackingField: 0
+  altFireArcModifier: 1
+  <AngleVar>k__BackingField: 0
+  altAngleVarModifier: 1
+  <SpeedVar>k__BackingField: 0
+  altSpeedVarModifier: 1
 --- !u!114 &6792946942772027188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,17 +128,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 6792946942772027190}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c95c7e6f9b6eb1649bd1d65333fce68b, type: 3}
+  m_Script: {fileID: 11500000, guid: 582a6d661bf75e641a87343d5d8a7d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InputManager: {fileID: 0}
-  isdown: 0
-  isup: 0
-  isleft: 0
-  isright: 0
-  isslow: 0
-  speed: {x: 0, y: 0}
-  bul: {fileID: 811777585029436916, guid: 7e77b49ac68ff0a49b4977ccd069ba4c, type: 3}
+  speedScalar: 10
+  slowingFactor: 0.4
+  movement:
+    event: {fileID: 0}
+  slow:
+    event: {fileID: 0}
 --- !u!50 &6792946942772027189
 Rigidbody2D:
   serializedVersion: 4

@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6897001040671944140}
   - component: {fileID: 5890605644667229264}
-  - component: {fileID: 1706065098317691299}
+  - component: {fileID: 2208433195034219506}
   - component: {fileID: -1400722692046613091}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EnemyBullet
-  m_TagString: enemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5404820296451286453}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.203898, y: 2.8885853, z: 0}
+  m_LocalPosition: {x: 3.286, y: 2.894, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1706065098317691299
+--- !u!114 &2208433195034219506
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,9 +95,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5404820296451286453}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29738982b353bc84080fbfb57744ecd4, type: 3}
+  m_Script: {fileID: 11500000, guid: 25815d8237754394eb3449a00d251ae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lootPool: {fileID: 0}
+  point: 0
 --- !u!58 &-1400722692046613091
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -108,7 +110,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
