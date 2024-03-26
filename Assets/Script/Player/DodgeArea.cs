@@ -4,22 +4,34 @@ using UnityEngine;
 
 public class DodgeArea : MonoBehaviour
 {
-	GameObject player;
-
-	[SerializeField] private int focusReward;
-	[SerializeField] private int focusLoss;
+	GameObject playerObj;
+	Player player;
 
 	private void OnEnable()
 	{
-		player = this.transform.parent.gameObject;
-
+		try
+		{
+			playerObj = this.transform.parent.gameObject;
+			player = playerObj.GetComponent<Player>();
+		}
+		catch
+		{
+			Debug.Log("Player object Missing!");
+		}
 	}
 
 	private void OnTriggerEnter2D(Collider2D collider)
 	{
 		if (collider.gameObject.CompareTag("Enemy"))
 		{
-			player.GetComponent<Player>().Focus += focusReward;
+			Debug.Log("Hit!");
+			player.Focus += player.focusReward;
+
 		}
+	}
+
+	private void Update()
+	{
+		transform.localPosition = Vector2.zero;
 	}
 }

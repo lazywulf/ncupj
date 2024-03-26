@@ -18,11 +18,12 @@ public class Player : MonoBehaviour, IDamageable, IFireable
 		altFire.Subscribe(AltFire);
 		
 		hp = MaxHealth;
+		focus = 127;
 	}
 
 	private void Update()
 	{
-	
+
 	}
 
 	private void OnTriggerEnter2D(Collider2D collider)
@@ -31,6 +32,7 @@ public class Player : MonoBehaviour, IDamageable, IFireable
 		if (@object.CompareTag("Enemy") && !isInvincible)
 		{
 			Hp -= (@object.GetComponent<Bullet>()) ? @object.GetComponent<Bullet>().damage : 1;
+			Focus -= focusLoss;
 			StartCoroutine(InvincibilityFrameCoroutine(0.5f));
 		}
 		else if (@object.CompareTag("Reward"))
@@ -139,21 +141,33 @@ public class Player : MonoBehaviour, IDamageable, IFireable
 	#endregion
 
 	#region ABILITY
-	private bool focusLock = true;
+	[SerializeField] private int focus;
 
-	public int Focus { get; set; } = 127;
+	private bool losingFocus = false;
+	[SerializeField] public int focusLossRate = 1;
+	[SerializeField] public int focusReward;
+	[SerializeField] public int focusLoss;
+
+	 public int Focus 
+	{
+		get { return focus; }
+		set 
+		{
+			if (value > 127) focus = 127;
+			else if (value < 0) focus = 0;
+			else focus = value;
+		} 
+	}
 	public int BombCount { get; set; } = 3;
 
 	protected IEnumerator FocusLosingCoroutine()
 	{
-		focusLock = true;
 		while (true)
 		{
-			// TODO: Focus losing
-			yield return new WaitForSecondsRealtime(1);
-			if (!firing) break;
+			Focus -= focusLossRate;
+			yield return new WaitForSeconds(1000);
+			if (!losingFocus) break;
 		}
-		focusLock = false;
 		yield return null;
 	}
 

@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : PersistentSingleton<GameManager> {
     private bool paused = false;
-    private float originalTimeScale = 1;
 
     private static List<string> scences = new List<string>();
 

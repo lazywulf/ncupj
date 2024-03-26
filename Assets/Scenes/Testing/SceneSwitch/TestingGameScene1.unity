@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 121389434}
   m_Layer: 6
   m_Name: PhewCircle
-  m_TagString: Player
+  m_TagString: PlayerDectector
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -188,7 +188,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -206,8 +206,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7b3015d95e8edf4981198aee98fafb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  focusReward: 0
-  focusLoss: 0
 --- !u!1 &266318201
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,7 +259,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1879501861514234496, guid: d2c374f45965eb347bf3a1e7d4c9f3c6, type: 3}
       propertyPath: m_Name
-      value: Enemy
+      value: EnemyA
       objectReference: {fileID: 0}
     - target: {fileID: 1879501861514234496, guid: d2c374f45965eb347bf3a1e7d4c9f3c6, type: 3}
       propertyPath: m_TagString
@@ -272,6 +270,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1737197948}
     - target: {fileID: 4270741344639305787, guid: d2c374f45965eb347bf3a1e7d4c9f3c6, type: 3}
+      propertyPath: <FireRate>k__BackingField
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270741344639305787, guid: d2c374f45965eb347bf3a1e7d4c9f3c6, type: 3}
       propertyPath: <bulletPool>k__BackingField
       value: 
       objectReference: {fileID: 2041547866}
@@ -281,11 +283,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7707471554805038105, guid: d2c374f45965eb347bf3a1e7d4c9f3c6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -18
+      value: -18.2
       objectReference: {fileID: 0}
     - target: {fileID: 7707471554805038105, guid: d2c374f45965eb347bf3a1e7d4c9f3c6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.6
+      value: 4.9
       objectReference: {fileID: 0}
     - target: {fileID: 7707471554805038105, guid: d2c374f45965eb347bf3a1e7d4c9f3c6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -785,9 +787,9 @@ MonoBehaviour:
   points:
   - {x: -0.72096634, y: 6.4773693, z: 0}
   - {x: -0.6849861, y: 12.9248905, z: 0}
-  - {x: 19.172909, y: 0.642436, z: 0}
-  - {x: 19.242174, y: 6.694817, z: 0}
-  - {x: 19.31144, y: 12.747198, z: 0}
+  - {x: 3.2229643, y: 0.642436, z: 0}
+  - {x: 3.2922297, y: 6.694817, z: 0}
+  - {x: 3.361495, y: 12.747198, z: 0}
   - {x: -0.75694656, y: 0.029848099, z: 0}
   - {x: -0.72096634, y: 6.4773693, z: 0}
   modes: 020000000200000002000000
@@ -1345,6 +1347,84 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pools: []
+--- !u!1001 &1542988844
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1879501861514234496, guid: d2c374f45965eb347bf3a1e7d4c9f3c6, type: 3}
+      propertyPath: m_Name
+      value: EnemyB
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879501861514234496, guid: d2c374f45965eb347bf3a1e7d4c9f3c6, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270741344639305787, guid: d2c374f45965eb347bf3a1e7d4c9f3c6, type: 3}
+      propertyPath: lootPool
+      value: 
+      objectReference: {fileID: 1737197948}
+    - target: {fileID: 4270741344639305787, guid: d2c374f45965eb347bf3a1e7d4c9f3c6, type: 3}
+      propertyPath: <FireRate>k__BackingField
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270741344639305787, guid: d2c374f45965eb347bf3a1e7d4c9f3c6, type: 3}
+      propertyPath: <bulletPool>k__BackingField
+      value: 
+      objectReference: {fileID: 2041547866}
+    - target: {fileID: 7707471554805038105, guid: d2c374f45965eb347bf3a1e7d4c9f3c6, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707471554805038105, guid: d2c374f45965eb347bf3a1e7d4c9f3c6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707471554805038105, guid: d2c374f45965eb347bf3a1e7d4c9f3c6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707471554805038105, guid: d2c374f45965eb347bf3a1e7d4c9f3c6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707471554805038105, guid: d2c374f45965eb347bf3a1e7d4c9f3c6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707471554805038105, guid: d2c374f45965eb347bf3a1e7d4c9f3c6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707471554805038105, guid: d2c374f45965eb347bf3a1e7d4c9f3c6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707471554805038105, guid: d2c374f45965eb347bf3a1e7d4c9f3c6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707471554805038105, guid: d2c374f45965eb347bf3a1e7d4c9f3c6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707471554805038105, guid: d2c374f45965eb347bf3a1e7d4c9f3c6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707471554805038105, guid: d2c374f45965eb347bf3a1e7d4c9f3c6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 8054041452870839925, guid: d2c374f45965eb347bf3a1e7d4c9f3c6, type: 3}
+      propertyPath: spline
+      value: 
+      objectReference: {fileID: 761012222}
+    m_RemovedComponents:
+    - {fileID: 8054041452870839925, guid: d2c374f45965eb347bf3a1e7d4c9f3c6, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: d2c374f45965eb347bf3a1e7d4c9f3c6, type: 3}
 --- !u!1 &1557997338
 GameObject:
   m_ObjectHideFlags: 0
@@ -1548,9 +1628,17 @@ PrefabInstance:
       value: playerbullet
       objectReference: {fileID: 0}
     - target: {fileID: 3333587034104361626, guid: aaf4240292eb5b5469b818b47560415e, type: 3}
+      propertyPath: focusLoss
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3333587034104361626, guid: aaf4240292eb5b5469b818b47560415e, type: 3}
       propertyPath: death.event
       value: 
       objectReference: {fileID: 11400000, guid: 68e226f156c400443b072f68cb1959cb, type: 2}
+    - target: {fileID: 3333587034104361626, guid: aaf4240292eb5b5469b818b47560415e, type: 3}
+      propertyPath: focusReward
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3333587034104361626, guid: aaf4240292eb5b5469b818b47560415e, type: 3}
       propertyPath: poolManager
       value: 
@@ -1581,7 +1669,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3333587034104361626, guid: aaf4240292eb5b5469b818b47560415e, type: 3}
       propertyPath: <MaxHealth>k__BackingField
-      value: 7
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 3333587034104361626, guid: aaf4240292eb5b5469b818b47560415e, type: 3}
       propertyPath: <BulletPool>k__BackingField
