@@ -10,7 +10,7 @@ public class Enemy: MonoBehaviour, IMovable, IDamageable, IFireable
 	{
 		hp = MaxHealth;
 		Speed = Vector2.zero;
-		Acceleration = Vector2.zero;
+		Acceleration = Vector2.zero; 
 		Rotation = 0f;
 		Position = Vector2.zero;
 
@@ -51,7 +51,7 @@ public class Enemy: MonoBehaviour, IMovable, IDamageable, IFireable
 			}
 		}
 	}
-	[field: SerializeField] public int MaxHealth { get; set; } = 7;
+	[field: SerializeField] public int MaxHealth { get; set; } = 1000;
 
 	private void OnTriggerEnter2D(Collider2D collider)
 	{

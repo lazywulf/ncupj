@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class PlayerA : Player
 {
-
+	protected override void Bomb()
+	{
+		//throw new System.NotImplementedException();
+	}
 }

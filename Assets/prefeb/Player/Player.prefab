@@ -106,12 +106,13 @@ MonoBehaviour:
     event: {fileID: 11400000, guid: 965961e6c05ea6240a592a036cf7a705, type: 2}
   altFire:
     event: {fileID: 11400000, guid: 6c62f0001f6ed9145bcd510930ac3dee, type: 2}
-  death: {fileID: 0}
+  death: {fileID: 11400000, guid: 68e226f156c400443b072f68cb1959cb, type: 2}
   <MaxHealth>k__BackingField: 0
   <bulletPool>k__BackingField: {fileID: 0}
+  damage: 1
   <FireRate>k__BackingField: 1
   altFireRateModifier: 1
-  <BulletQuality>k__BackingField: 1
+  <BulletQuantity>k__BackingField: 1
   altBulletQualityModifier: 1
   <FireArc>k__BackingField: 0
   altFireArcModifier: 1
@@ -119,6 +120,10 @@ MonoBehaviour:
   altAngleVarModifier: 1
   <SpeedVar>k__BackingField: 0
   altSpeedVarModifier: 1
+  focus: 0
+  focuLossInterval: 1
+  focusReward: 0
+  focusLoss: 0
 --- !u!114 &6792946942772027188
 MonoBehaviour:
   m_ObjectHideFlags: 0

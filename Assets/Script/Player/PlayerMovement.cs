@@ -23,10 +23,6 @@ public class PlayerMovement : MonoBehaviour, IMovable
 	{
 		slow.Subscribe(Slow);
 		movement.Subscribe(Move);
-	}
-
-	private void Start()
-	{
 		rb = GetComponent<Rigidbody2D>();
 		transform.position = GameArea.Instance.SpawnPoint;
 	}

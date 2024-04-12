@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Utility;
 
-public class Player : MonoBehaviour, IDamageable, IFireable
+public abstract class Player : MonoBehaviour, IDamageable, IFireable
 {
+	#region EVENT
 	[SerializeField] EventListener bomb;
 	[SerializeField] EventListener fire;
 	[SerializeField] EventListener altFire;
 	[SerializeField] GameEvent death;
+	#endregion
 
 	private void OnEnable()
 	{
@@ -19,11 +21,6 @@ public class Player : MonoBehaviour, IDamageable, IFireable
 		
 		hp = MaxHealth;
 		focus = 127;
-	}
-
-	private void Update()
-	{
-
 	}
 
 	private void OnTriggerEnter2D(Collider2D collider)
@@ -64,6 +61,7 @@ public class Player : MonoBehaviour, IDamageable, IFireable
 
 	private void Revive()
 	{
+		// FIXME: Potential issue, resetting player on revive may not work properly
 		this.gameObject.SetActive(true);
 		InputManager.Instance.DisableMenuAction();
 		InputManager.Instance.EnablePlayerInput();
@@ -114,12 +112,12 @@ public class Player : MonoBehaviour, IDamageable, IFireable
 		yield return null;
 	}
 
-	virtual protected void NormalFire()
+	protected virtual void NormalFire()
 	{
 		FireCal.DefaultFire(this, transform, bulletPool, "playerbullet1", 50f, (int)(damage * FocusToDamageModifier()));	
 	}
 
-	virtual protected void SlowFire()
+	protected virtual void SlowFire()
 	{
 		FireCal.SpreadFire(this, transform, bulletPool, "playerbullet2", 30f, (int)(damage * FocusToDamageModifier()));
 	}
@@ -136,15 +134,13 @@ public class Player : MonoBehaviour, IDamageable, IFireable
 		altFiring = !altFiring;
 	}
 
-	private void Bomb() { }
-
 	#endregion
 
 	#region ABILITY
 	[SerializeField] private int focus;
 
 	private bool losingFocus = false;
-	[SerializeField] public int focusLossRate = 1;
+	[SerializeField] public int focuLossInterval = 1;
 	[SerializeField] public int focusReward;
 	[SerializeField] public int focusLoss;
 
@@ -160,12 +156,20 @@ public class Player : MonoBehaviour, IDamageable, IFireable
 	}
 	public int BombCount { get; set; } = 3;
 
-	protected IEnumerator FocusLosingCoroutine()
+	protected abstract void Bomb();
+
+	public void FocusLossToggle()
+	{
+		losingFocus = !losingFocus;
+		if (losingFocus) StartCoroutine(FocusLosingCoroutine());
+	}
+
+	private IEnumerator FocusLosingCoroutine()
 	{
 		while (true)
 		{
-			Focus -= focusLossRate;
-			yield return new WaitForSeconds(1000);
+			Focus -= 1;
+			yield return new WaitForSeconds(focuLossInterval);
 			if (!losingFocus) break;
 		}
 		yield return null;
