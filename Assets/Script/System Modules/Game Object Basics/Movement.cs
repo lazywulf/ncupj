@@ -27,8 +27,21 @@ public class Movement : MonoBehaviour, IMovable
 		Acceleration = Vector2.zero;
 	}
 
+	private void Move()
+	{
+		move?.Invoke();
+	}
+
 	private void OnEnable()
 	{
 		Init();
 	}
+
+	private void Update()
+	{
+		Move();
+		GameArea.Instance.InBoundChecker(this.gameObject);
+	}
+
+
 }
