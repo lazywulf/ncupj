@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,8 +6,7 @@ using UnityEngine.Events;
 
 public class Movement : MonoBehaviour, IMovable
 {
-	public UnityAction moveAction;
-	public UnityEvent move;
+	public event Action move;
 
 	public Vector2 Speed { get; set; }
 	public Vector2 Acceleration { get; set; }
@@ -27,11 +27,6 @@ public class Movement : MonoBehaviour, IMovable
 		Acceleration = Vector2.zero;
 	}
 
-	private void Move()
-	{
-		move?.Invoke();
-	}
-
 	private void OnEnable()
 	{
 		Init();
@@ -39,7 +34,7 @@ public class Movement : MonoBehaviour, IMovable
 
 	private void Update()
 	{
-		Move();
+		move?.Invoke();
 		GameArea.Instance.InBoundChecker(this.gameObject);
 	}
 

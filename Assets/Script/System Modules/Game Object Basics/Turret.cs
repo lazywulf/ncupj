@@ -1,19 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Utility;
 
 public class Turret : MonoBehaviour, IFireable
 {
-	public UnityAction FireAction;
-	public UnityEvent fire;
+	public event Action fire;
 
 	[field: SerializeField] public float FireRate { get; set; } = 1;
 	[field: SerializeField] public int BulletQuantity { get; set; } = 1;
 	[field: SerializeField] public float FireArc { get; set; }
 	[field: SerializeField] public float AngleVar { get; set; }
 	[field: SerializeField] public float SpeedVar { get; set; }
-	[SerializeField] protected PoolSystem bulletPool;
+	[SerializeField] public PoolSystem bulletPool;
 
 	private bool firing = false;
 	private bool canFire = true;
@@ -40,6 +41,7 @@ public class Turret : MonoBehaviour, IFireable
 
 	private void Update()
 	{
+		
 		SetFire(true);
 	}
 
